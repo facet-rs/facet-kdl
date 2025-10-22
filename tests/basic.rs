@@ -1,5 +1,6 @@
 use facet::Facet;
-use facet_testhelpers::test;
+// use facet_testhelpers::test;
+
 use indoc::indoc;
 
 #[test]
@@ -36,9 +37,9 @@ fn basic_node() {
         title "Hello, World"
     "#};
 
-    dbg!(Basic::SHAPE);
-
-    let _basic: Basic = facet_kdl::from_str(kdl).unwrap();
+    let basic: Basic = facet_kdl::from_str(kdl).unwrap();
+    let roundtrip = facet_kdl::to_string(&basic).unwrap();
+    assert_eq!(roundtrip, kdl);
 }
 
 #[test]
@@ -194,4 +195,22 @@ fn canon_example() {
             }
         }
     );
+
+    let roundtrip = facet_kdl::to_string(&root).unwrap();
+    assert_eq!(
+        roundtrip,
+        r##"package {
+    name my-pkg
+    version "1.2.3"
+    dependencies {
+        lodash ^3.2.1 optional=#true alias=underscore
+    }
+    scripts {
+        message "hello\nworld"
+        build "echo \"foo\"\nnode -c \"console.log('hello, world!');\"\necho \"foo\" > some-file.txt"
+    }
+    the-matrix 1 2 3 4 5 6 7 8 9
+}
+"##
+    )
 }
