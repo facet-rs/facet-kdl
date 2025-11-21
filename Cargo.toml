@@ -26,5 +26,5 @@ cargo-husky = { version = "1.5.0", default-features = false, features = [
     "user-hooks",
 ] }
 facet = { version = "0.29" }
-facet-testhelpers = { version = "0.29" }
+facet-testhelpers = { version = "0.31" }
 indoc = "2.0.6"
