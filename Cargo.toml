@@ -25,6 +25,6 @@ kdl = "6.5.0"
 cargo-husky = { version = "1.5.0", default-features = false, features = [
     "user-hooks",
 ] }
-facet = { version = "0.29" }
+facet = { version = "0.31" }
 facet-testhelpers = { version = "0.29" }
 indoc = "2.0.6"
