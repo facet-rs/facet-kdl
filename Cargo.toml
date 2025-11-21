@@ -17,7 +17,7 @@ default = ["std"]
 
 [dependencies]
 log = "0.4.28"
-facet-core = { version = "0.29", default-features = false }
+facet-core = { version = "0.31", default-features = false }
 facet-reflect = { version = "0.29", default-features = false }
 kdl = "6.5.0"
 
